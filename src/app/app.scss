@@ -1,0 +1,451 @@
+@import "all";
+
+// TODO: concatenate with app.min.css (add grunt task)
+@import "devices/list/devices-list.scss";
+@import "devices/add/devices-add.scss";
+
+
+/******************************************************************************/
+/*********************************** MOBILE ***********************************/
+/******************************************************************************/
+
+
+/*
+ *  1. General
+ */
+
+*, *:before, *:after {
+  @include box-sizing(border-box);
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+html {
+  font-size: 62.5%;                       // 10px / 16px (= standard font-size in all modern browsers)
+}
+
+body {
+  background-color: $bgc-normal;
+  color: $c-text-normal;
+  font-family: $open-sans;
+  @include rem(font-size, 1.6);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//   font-weight: 700;
+// }
+
+a {
+  text-decoration: none;
+}
+
+button,
+a.button {
+  cursor: pointer;
+  display: block;
+  @include rem(font-size, 1.6);
+  font-weight: 300;
+  margin: 0;
+  @include rem(padding, 1.2);
+
+//   &:hover {
+//     background-color: $bgc-highlight-color-hover;
+//   }
+
+  &.rect {
+    background-color: $bgc-highlight-color;
+    border: 1px solid $bc-highlight-color;
+    color: $c-highlight-color;
+
+    &:hover {
+      background-color: $bgc-highlight-color-hover-add;
+      border-color: $bc-highlight-color-hover-add;
+      color: $c-highlight-color-hover-add;
+    }    
+  }
+
+  &.circle {
+    background-color: $bgc-highlight-color;
+    border: 1px solid $bc-highlight-color;
+    border-radius: 50%;
+    color: $c-highlight-color;
+    @include rem(height, 4.8);
+    @include rem(width, 4.8);
+
+    &:hover {
+      background-color: $bgc-highlight-color-hover;
+      border-color: $bc-highlight-color-hover;
+      color: $c-highlight-color-hover;
+    }
+
+    &.add:hover {
+      background-color: $bgc-highlight-color-hover-add;
+      border-color: $bc-highlight-color-hover-add;
+      color: $c-highlight-color-hover-add;
+    }
+
+    &.delete:hover {
+      background-color: $bgc-highlight-color-hover-delete;
+      border-color: $bc-highlight-color-hover-delete;
+      color: $c-highlight-color-hover-delete;
+    }
+  }
+}
+
+a.button {
+  @include rem(padding, 1, 1.2, 1.4);
+  text-align: center;
+}
+
+form {
+  input[type="text"],
+  input[type="password"] {
+    border: 1px solid $bc-normal;
+    @include appearance(none);
+    @include rem(font-size, 1.6);
+    @include rem(line-height, 2.4);
+    outline: none;
+    @include rem(margin, 1.2, 0, 0);
+    @include rem(padding, 0.6, 1.2);
+    width: 100%;
+  }
+}
+
+
+/*
+ * 2. Layout
+ */
+
+#app-container,
+.col {
+  height: 100%;
+  min-height: 100%;
+}
+
+#app-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.col {
+  border-left: 1px solid $bc-normal;
+  float: left;
+
+  &:first-child {
+    border-left: none;
+  }
+}
+
+
+/*
+ * 3. Overlay
+ */
+
+.overlay {
+  background-color: $bgc-overlay;
+  height: 100%;
+  min-height: 100%;
+  overflow: scroll;
+  @include rem(padding, 7.2, 2.4, 2.4);
+  position: fixed;
+    left: 0;
+    top: 0;
+  width: 100%;
+
+  .close.button {
+    position: absolute;
+      @include rem(right, 2.4);
+      @include rem(top, 7.2);
+  }
+}
+
+
+/*
+ * 4. Navigation
+ */
+
+#top-bar {
+  background-color: $bgc-highlight-light;
+  border-bottom: 1px solid $bc-highlight-color;
+  @include rem(height, 4.8);
+  position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+  z-index: 100;
+
+  h1,
+  a {
+    @include rem(padding, 1.2);
+  }
+
+  h1 {
+    font-weight: 700;
+    text-align: center;
+  }
+
+  a {
+    color: $c-text-normal;
+    cursor: pointer;
+    display: block;
+    position: fixed;
+      @include rem(right, 1.2);
+      top: 0;
+    z-index: 150;
+  }
+}
+
+#navigation {
+  background-color: $bgc-normal;
+  @include rem(padding, 7.2, 0);
+  position: fixed;
+    bottom: 0;
+    left: 0;
+    top: 0;
+  width: 100%;
+  z-index: 50;
+
+  &.hide {
+    @include transform(translateX(-100%));
+  }
+
+  a {
+    color: $c-text-normal;
+    display: block;
+    @include rem(font-size, 2.4);
+    @include rem(padding, 0.6, 2.4);
+    text-align: right;
+
+    &:hover,
+    &.active {
+      font-weight: 700;
+    }
+  }
+}
+
+
+/*
+ * 5. Content
+ */
+
+#content {
+  @include rem(padding, 4.8, 0, 0);
+  overflow: auto;
+  width: 100%;
+}
+
+ul.list {
+  width: 100%;
+
+  li {
+    background-color: $bgc-highlight-light;
+    border-bottom: 1px solid $bc-highlight-light;
+    cursor: pointer;
+//     @include rem(height, 19.2);
+    // @include rem(margin, 0, 2.4, 2.4, 0);
+    @include rem(padding, 2.4);
+    position: relative;
+//     @include rem(width, 19.2);
+
+//     &.add {
+//       display: block;
+//       @include rem(font-size, 9.6);
+//       @include rem(line-height, 9.6);
+//       @include rem(padding, 4.6,  4.8, 5);
+//       text-align: center;
+
+//       a {
+//         color: $c-highlight-light;
+        
+//         &:hover {
+//           color: $c-highlight-light-hover;
+//         }
+//       }
+//     }
+  }
+
+//   .meta {
+//     overflow: auto;
+//     position: absolute;
+//       bottom: 0;
+//       left: 0;
+//     width: 100%;
+
+//     button {
+//       float: left;
+//     }
+//   }
+}
+
+// #device-wizard {
+//   margin: 0 auto;
+//   overflow: scroll;
+//   width: 50%;
+
+//   input[type="text"],
+//   input[type="password"] {
+//     @include appearance(none);
+//     border: 1px solid $bc-normal;
+//     @include rem(font-size, 1.6);
+//     @include rem(line-height, 2.4);
+//     outline: none;
+//     @include rem(padding, 1.2);
+//     @include rem(margin, 0);
+//     width: 100%;
+//   }
+// }
+
+// ul.dev {
+//   li {
+//     @include rem(margin-bottom, 1.2);
+//     @include rem(padding, 0, 1.2);
+//   }
+// }
+
+
+/******************************************************************************/
+/*********************************** TABLET ***********************************/
+/******************************************************************************/
+
+@media screen and (min-width: $bp-tablet) {
+
+/*
+ *  1. General
+ */
+
+
+
+
+/*
+ * 2. Layout
+ */
+
+
+
+
+/*
+ * 3. Overlay
+ */
+
+
+
+
+/*
+ * 4. Navigation
+ */
+
+
+
+
+/*
+ * 5. Content
+ */
+
+
+
+}
+
+
+/******************************************************************************/
+/****************************** DESKTOP - SMALL *******************************/
+/******************************************************************************/
+
+@media screen and (min-width: $bp-desktop-small) {
+
+/*
+ *  1. General
+ */
+
+
+
+
+/*
+ * 2. Layout
+ */
+
+#content {
+  @include rem(padding, 7.2, 4.8);
+}
+
+
+/*
+ * 3. Overlay
+ */
+
+
+
+
+/*
+ * 4. Navigation
+ */
+
+
+
+
+/*
+ * 5. Content
+ */
+
+
+  
+}
+
+
+/******************************************************************************/
+/****************************** DESKTOP - LARGE *******************************/
+/******************************************************************************/
+
+@media screen and (min-width: $bp-desktop-large) {
+
+/*
+ *  1. General
+ */
+
+
+
+
+/*
+ * 2. Layout
+ */
+
+
+
+
+/*
+ * 3. Overlay
+ */
+
+
+
+
+/*
+ * 4. Navigation
+ */
+
+
+
+
+/*
+ * 5. Content
+ */
+
+
+
+}
+
+
+
+
+
+

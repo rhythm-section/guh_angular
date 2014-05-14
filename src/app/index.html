@@ -1,0 +1,63 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" data-ng-app="app"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" data-ng-app="app"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" data-ng-app="app"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" data-ng-app="app"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    
+    <title>my home &middot; guh</title>
+    
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- Styles -->
+    <link type="text/css" rel="stylesheet" href="app.min.css">
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700,400' rel='stylesheet' type='text/css'>
+
+    <!-- Scripts: Dependencies -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/restangular/dist/restangular.js"></script>
+    <script src="bower_components/lodash/dist/lodash.js"></script>
+
+    <!-- Scripts: App -->
+    <script type="text/javascript" src="app.js"></script>
+
+    <script type="text/javascript" src="home/home.js"></script>
+    <script type="text/javascript" src="home/home-controller.js"></script>
+
+    <script type="text/javascript" src="devices/devices.js"></script>
+    <script type="text/javascript" src="devices/list/devices-list-controller.js"></script>
+    <script type="text/javascript" src="devices/add/devices-add-controller.js"></script>
+
+    <script type="text/javascript" src="rules/rules.js"></script>
+    <script type="text/javascript" src="rules/rules-controller.js"></script>
+
+    <script type="text/javascript" src="settings/settings.js"></script>
+    <script type="text/javascript" src="settings/settings-controller.js"></script>
+  </head>
+
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.min.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <div id="app-container">
+      <div id="top-bar" ng-include="'components/navigation/top-bar.html'"></div>
+      <div class="hide col" id="navigation" ng-include="'components/navigation/navigation.html'"></div>
+      <div class="col" id="content" ui-view></div>
+    </div> <!-- #app-container -->
+
+
+    <!-- Scripts  -->
+  </body>
+</html>

@@ -1,0 +1,46 @@
+// @import "variables";
+
+// px-fallback for browsers that don't support rem-values
+// http://designbyjoel.com/blog/2013-02-28-sass-rems/
+
+@mixin rem($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value*10}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  } 
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  } 
+  
+  #{$property}: $pxValues; 
+  #{$property}: $remValues; 
+}
+
+// @mixin width($context, $cols, $colWidth, $gutterWidth, $marginWidth: 0) {
+//   $percent: calc-percent(($cols * $colWidth + ($cols - 1) * $gutterWidth + $marginWidth), $context);
+//   width: $percent;
+// }
+
+// @mixin columns($cols, $context, $with-margin: false) {
+//   $percent: 100%;
+//   @if $with-margin == true {
+//     $percent: calc-percent(($cols * $col-width + ($cols - 1) * $gutter-width + $site-margin), $context);
+//   } @else {
+//     $percent: calc-percent(($cols * $col-width + ($cols - 1) * $gutter-width), $context);
+//   }
+//   width: $percent;
+// }

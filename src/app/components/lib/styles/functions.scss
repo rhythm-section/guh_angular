@@ -1,0 +1,26 @@
+@import "variables";
+
+// helper function for px-fallback
+// http://designbyjoel.com/blog/2013-02-28-sass-rems/
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function calc-percent($target, $context) {
+  @return ($target / $context) * 100%;
+}
+
+@function calc-width($cols, $context, $with-margin: false) {
+  $percent: 100%;
+
+  @if $with-margin == true {
+    // $percent: calc-percent(($cols * $col-width + ($cols - 1) * $gutter-width + $site-margin), $context);
+    $percent: ($cols * $col-width + ($cols - 1) * $gutter-width + $site-margin);
+  } @else {
+    // $percent: calc-percent(($cols * $col-width + ($cols - 1) * $gutter-width), $context);
+    $percent: ($cols * $col-width + ($cols - 1) * $gutter-width);
+  }
+
+  @return $percent;
+}

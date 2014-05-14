@@ -1,0 +1,70 @@
+// Breakpoints ----------------------------------------------------------------
+
+$bp-mobile: 320px;
+$bp-tablet: 768px;
+$bp-desktop-small: 1024px;
+$bp-desktop-large: 1280px;
+
+// Type -----------------------------------------------------------------------
+
+$open-sans: 'Open Sans', sans-serif;
+
+// Colors ---------------------------------------------------------------------
+
+$white: #fff;
+$white-transparent: rgba(255, 255, 255, 0.9);
+
+$beige-normal: #F5F5F0;
+$beige-dark: #E7E7DF;
+
+$black-normal: #353533;
+
+$green-normal: #4DC6A9;
+$green-dark: #369D84;
+
+$red-normal: #D26363;
+
+// Base Colors -------------------------------------------------------------------
+
+$bgc-normal: $beige-normal;
+$bc-normal: $beige-dark;
+
+$bgc-highlight-dark: $black-normal;
+
+$bgc-highlight-light: $white;
+$bc-highlight-light: $beige-normal;
+$c-highlight-light: $green-normal;
+$c-highlight-light-hover: $green-dark;
+
+$bgc-highlight-color: $white;
+$bc-highlight-color: $beige-dark;
+$c-highlight-color: $black-normal;
+
+
+$bgc-highlight-color-hover: $beige-dark;
+$bc-highlight-color-hover: $beige-dark;
+$c-highlight-color-hover: $white;
+
+$bgc-highlight-color-hover-add: $green-normal;
+$bc-highlight-color-hover-add: $green-normal;
+$c-highlight-color-hover-add: $white;
+
+$bgc-highlight-color-hover-delete: $red-normal;
+$bc-highlight-color-hover-delete: $red-normal;
+$c-highlight-color-hover-delete: $white;
+
+// $bgc-overlay: $white-transparent;
+$bgc-overlay: $white;
+
+$c-text-normal: $black-normal;
+
+$c-highlight-normal: $beige-normal;
+
+// Highlight Colors --------------------------------------------------------------
+
+
+
+// Border Widths -----------------------------------------------------------------
+
+
+

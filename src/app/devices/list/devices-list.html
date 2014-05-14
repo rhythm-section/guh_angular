@@ -1,0 +1,25 @@
+<!-- <h2>Devices: List ({{installedDevices.length}})</h2> -->
+
+<!-- <p class="dev-info" ng-repeat="vendor in supportedVendors">{{ vendor }}</p> -->
+<!-- <p class="dev-info" ng-repeat="device in supportedDevices">{{ device }}</p> -->
+
+<ul id="devices-installed" class="list">
+  <li data-ng-repeat="device in installedDevices">
+    <h3>{{ device.name }}</h3>
+    <h4>{{ device.vendor }}</h4>
+
+    <div class="meta">
+      <button class="circle" data-ng-click="editDevice(device.id)">i</button>
+      <button class="delete circle" data-ng-click="deleteDevice(device.id)">-</button>
+    </div>
+  </li>
+  <li class="add">
+    <h3>Add new device</h3>
+
+    <div class="meta">
+      <button class="add circle" ui-sref="devices.add">+</button>
+    </div>
+  </li>
+</ul>
+
+<div ui-view></div>

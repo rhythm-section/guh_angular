@@ -1,0 +1,36 @@
+<!-- TODO: disable atuocomplete in safari? what is with other browsers? safari => http://stackoverflow.com/questions/22661977/disabling-safari-autofill-on-usernames-and-passwords -->
+<div class="overlay">
+
+  <form id="device-wizard" autocomplete="off">
+
+    <a id="close-wizard" class="close circle button" ui-sref="devices">x</a>
+
+    <div class="step-1">
+      <!-- vendor filter & list -->
+      <p>
+        <label for="vendor-name">Please enter vendor of device:</label>
+        <input id="vendor-name" data-ng-model="filters.vendorName" data-ng-enter="test()" type="text" />
+      </p>
+
+      <ul id="supportedVendors">
+        <li id="id-{{ vendor.id }}" data-ng-repeat="vendor in supportedVendors | filter: filters.vendorName | orderBy: 'name' " data-ng-click="setVendor(vendor.id)">{{ vendor.name }}</li>
+      </ul>
+
+      <!-- device filter & list -->
+      <p>
+        <label for="device-name">Please enter name of device:</label>
+        <input id="device-name" data-ng-model="filters.deviceName" type="text" />
+      </p>
+
+      <ul id="supportedDevices">
+        <li id="id-{{ device.id }}" data-ng-repeat="device in supportedDevices | filter: filters.deviceName | orderBy: 'name'" data-ng-click="setDevice(device.id)">{{ device.name }}</li>
+      </ul>
+    </div><!-- .step-1 -->
+
+    <div id="device-params" class="step-2 wizard"></div> <!-- .step-2 -->
+
+    <button class="rect" data-ng-click="addDevice()">add device +</button>
+
+  </form>
+
+</div> <!-- #device-wizard.overlay -->

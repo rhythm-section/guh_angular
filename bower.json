@@ -1,0 +1,28 @@
+{
+  "name": "guh",
+  "version": "0.0.0",
+  "private": true,
+  "authors": [
+    "Lukas Mayerhofer <lmayerhofer.mmt-m2012@fh-salzburg.at>"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.guh.guru",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.2.16",
+    "angular-ui-router": "~0.2.10",
+    "restangular": "~1.4.0",
+    "es5-shim": "~3.1.1",
+    "json3": "~3.3.1"
+  },
+  "devDependencies": {
+    "reset-scss": "*"
+  }
+}
