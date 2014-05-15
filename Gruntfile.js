@@ -168,7 +168,7 @@ module.exports = function(grunt) {
 
   // Register task
   grunt.registerTask('test', ['karma:unit']);
-  grunt.registerTask('build', ['clean', 'copy', 'sass', 'cssmin'/*, 'imagemin', 'karma:unit'*/]);
+  grunt.registerTask('build', ['clean:app', 'copy:app', 'sass', 'cssmin'/*, 'imagemin', 'karma:unit'*/]);
   grunt.registerTask('serve', ['watch:rails']);
 
   // grunt.registerTask('rails', ['clean', 'copy', 'sass', 'cssmin', 'imagemin', 'clean:rails', 'copy:rails']);
