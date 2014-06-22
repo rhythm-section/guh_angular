@@ -44,6 +44,12 @@ app.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
       templateUrl: 'devices/add/devices-add.html',
       controller: 'devicesAddController'
     })
+    .state('devices.edit', {
+      // url: '/edit',
+      params: ['deviceId'],
+      templateUrl: 'devices/edit/devices-edit.html',
+      controller: 'devicesEditController'
+    })
     .state('rules', {
       url: '/rules',
       templateUrl: 'rules/rules.html',
@@ -59,12 +65,18 @@ app.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 
   // TODO: replace this with other solution
   $rootScope.showNavigation = function() {
-    var navigation = document.getElementById('navigation');
+    var navigation = document.getElementById('main-navigation');
 
-    if(navigation.className.match(/(?:^|\s)hide(?!\S)/)) {
-      navigation.className = navigation.className.replace( /(?:^|\s)hide(?!\S)/g , '' );
+    FastClick.attach(document.body);
+
+    if(navigation.className.match(/(?:^|\s)show(?!\S)/)) {
+      navigation.className = navigation.className.replace(/(?:^|\s)show(?!\S)/g , '');
+      navigation.className = navigation.className.replace(/(?:^|\s)animated(?!\S)/g , '');
+      navigation.className = navigation.className.replace(/(?:^|\s)bounceInDown(?!\S)/g , '');
     } else {
-      navigation.className += ' hide';
+      navigation.className += ' show';
+      navigation.className += ' animated';
+      navigation.className += ' bounceInDown';
     }
   }
 })
