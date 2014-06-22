@@ -130,18 +130,35 @@ module.exports = function(grunt) {
       }
     },
 
-    karma: {
-      unit: {
-        configFile: 'karma.conf.js',
-        background: true
-      }
-    },
+    // svg icon sprite
+    // grunticon: {
+    //   app: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: 'src/app/components/lib/images/icons/',
+    //       src: ['*.svg'],
+    //       dest: 'app/components/lib/images/icons/'
+    //     }],
+    //     options: {
+    //       datasvgcss: 'icons.svg.css',
+    //       datapngcss: 'icons.png.css',
+    //       previewhtml: 'icon-preview.html'
+    //     }
+    //   }
+    // },
+
+    // karma: {
+    //   unit: {
+    //     configFile: 'karma.conf.js',
+    //     background: true
+    //   }
+    // },
 
     watch: {
-      karma: {
-        files: ['src/app/**/*.js'],
-        tasks: ['karma:unit:run']
-      },
+      // karma: {
+      //   files: ['src/app/**/*.js'],
+      //   tasks: ['karma:unit:run']
+      // },
 
       sass: {
         files: ['src/app/**/*.scss'],
