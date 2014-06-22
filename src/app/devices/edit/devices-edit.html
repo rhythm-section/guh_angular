@@ -1,0 +1,14 @@
+<!-- TODO: disable atuocomplete in safari? what is with other browsers? safari => http://stackoverflow.com/questions/22661977/disabling-safari-autofill-on-usernames-and-passwords -->
+<div class="overlay">
+
+  <form id="edit-device" autocomplete="off">
+
+    <a class="close circle button" ui-sref="devices">x</a>
+
+    <p>{{selectedDevice}}</p>
+
+    <button class="rect" data-ng-click="editDevice()">save changes</button>
+
+  </form>
+
+</div> <!-- #edit-device.overlay -->

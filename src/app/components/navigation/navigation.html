@@ -1,24 +1,6 @@
-<!-- <header>
-  <p>Lukas</p>
-  <button>Close</button>
-</header> -->
-
-<nav class="main">
-  <ul>
-<!--     <li><a ui-sref-active="active" ui-sref="home">Home</a></li>
-    <li><a ui-sref-active="active" ui-sref="devices">Devices</a></li>
-    <li><a ui-sref-active="active" ui-sref="rules">Rules</a></li> -->
-    <!-- TODO: is there a better solution for active-class in nested views? -->
-    <li><a data-ng-click="showNavigation()" data-ng-class="{active: $state.includes('home')}" ui-sref="home">Home</a></li>
-    <li><a data-ng-click="showNavigation()" data-ng-class="{active: $state.includes('devices')}" ui-sref="devices">Devices</a></li>
-    <li><a data-ng-click="showNavigation()" data-ng-class="{active: $state.includes('rules')}" ui-sref="rules">Rules</a></li>
-    <li><a data-ng-click="showNavigation()" data-ng-class="{active: $state.includes('settings')}" ui-sref="settings">Settings</a></li>
-  </ul>
-</nav>
-
-<!-- <nav class="support">
-  <ul>
-    <li><a href="#">Abmelden</a></li>
-    <li><a ui-sref="settings">Einstellungen</a></li>
-  </ul>
-</nav> -->
+<ul>
+  <li><a data-ng-click="showNavigation()" data-ng-class="{active: $state.includes('home')}" ui-sref="home">Home</a></li>
+  <li><a data-ng-click="showNavigation()" data-ng-class="{active: $state.includes('devices')}" ui-sref="devices">Devices</a></li>
+  <li><a data-ng-click="showNavigation()" data-ng-class="{active: $state.includes('rules')}" ui-sref="rules">Rules</a></li>
+  <li><a data-ng-click="showNavigation()" data-ng-class="{active: $state.includes('settings')}" ui-sref="settings">Settings</a></li>
+</ul>

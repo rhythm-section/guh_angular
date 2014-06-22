@@ -23,6 +23,7 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/restangular/dist/restangular.js"></script>
     <script src="bower_components/lodash/dist/lodash.js"></script>
+    <script src="bower_components/fastclick/lib/fastclick.js"></script>
 
     <!-- Scripts: App -->
     <script type="text/javascript" src="app.js"></script>
@@ -33,6 +34,7 @@
     <script type="text/javascript" src="devices/devices.js"></script>
     <script type="text/javascript" src="devices/list/devices-list-controller.js"></script>
     <script type="text/javascript" src="devices/add/devices-add-controller.js"></script>
+    <script type="text/javascript" src="devices/edit/devices-edit-controller.js"></script>
 
     <script type="text/javascript" src="rules/rules.js"></script>
     <script type="text/javascript" src="rules/rules-controller.js"></script>
@@ -52,9 +54,12 @@
     <![endif]-->
 
     <div id="app-container">
-      <div id="top-bar" ng-include="'components/navigation/top-bar.html'"></div>
-      <div class="hide col" id="navigation" ng-include="'components/navigation/navigation.html'"></div>
-      <div class="col" id="content" ui-view></div>
+      <nav id="main-navigation" ng-include="'components/navigation/navigation.html'"></nav>
+
+      <div id="content-container">
+        <div id="top-bar" ng-include="'components/navigation/top-bar.html'"></div>
+        <div id="content" ui-view></div>
+      </div> <!-- #content-container -->
     </div> <!-- #app-container -->
 
 

@@ -54,6 +54,7 @@ devices.controller('devicesListController', function($rootScope, $scope, $log, R
     });
   }
 
+  // delete device
   $scope.deleteDevice = function(deviceId) {
     Restangular.one('devices', deviceId).remove().then(function(response) {
       // TODO: do something with the response (check if everything worked)

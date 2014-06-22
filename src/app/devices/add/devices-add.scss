@@ -1,34 +1,34 @@
-@import "all";
+// @import "all";
 
 
-/******************************************************************************/
-/*********************************** MOBILE ***********************************/
-/******************************************************************************/
+// /******************************************************************************/
+// /*********************************** MOBILE ***********************************/
+// /******************************************************************************/
 
 
-#device-wizard {
-  @include rem(padding, 6.0, 0, 0);
+// #device-wizard {
+//   @include rem(padding, 6.0, 0, 0);
 
-  ul {
-    @include rem(margin, 0, 0, 2.4);
-  }
+//   ul {
+//     @include rem(margin, 0, 0, 2.4);
+//   }
 
-  li {
-    background-color: $bgc-normal;
-    border-top: 1px solid $bc-normal;
-    cursor: pointer;
-    @include rem(padding, 0.6, 1.2);
+//   li {
+//     background-color: $bgc-normal;
+//     border-top: 1px solid $bc-normal;
+//     cursor: pointer;
+//     @include rem(padding, 0.6, 1.2);
 
-    &:hover {
-      background-color: $bgc-highlight-color-hover-add;
-    }
+//     &:hover {
+//       background-color: $bgc-highlight-color-hover-add;
+//     }
 
-    &:first-child {
-      border-top: none;
-    }
-  }
+//     &:first-child {
+//       border-top: none;
+//     }
+//   }
 
-  button {
-    width: 100%;
-  }
-}
+//   button {
+//     width: 100%;
+//   }
+// }

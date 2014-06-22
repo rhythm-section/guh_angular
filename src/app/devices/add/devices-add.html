@@ -8,21 +8,23 @@
     <div class="step-1">
       <!-- vendor filter & list -->
       <p>
-        <label for="vendor-name">Please enter vendor of device:</label>
-        <input id="vendor-name" data-ng-model="filters.vendorName" data-ng-enter="test()" type="text" />
+        <label for="vendor-name">Filter the vendor of your device:</label>
+        <input id="vendor-name" data-ng-model="filters.vendorName" data-ng-enter="test()" type="text" placeholder="guh" />
       </p>
 
-      <ul id="supportedVendors">
+      <!-- <p>Select the vendor of your device:</p> -->
+      <ul id="supportedVendors" class="list">
         <li id="id-{{ vendor.id }}" data-ng-repeat="vendor in supportedVendors | filter: filters.vendorName | orderBy: 'name' " data-ng-click="setVendor(vendor.id)">{{ vendor.name }}</li>
       </ul>
 
       <!-- device filter & list -->
       <p>
-        <label for="device-name">Please enter name of device:</label>
-        <input id="device-name" data-ng-model="filters.deviceName" type="text" />
+        <label for="device-name">Filter the name of your device:</label>
+        <input id="device-name" data-ng-model="filters.deviceName" type="text" placeholder="WiFi Device" />
       </p>
 
-      <ul id="supportedDevices">
+      <!-- <p>Select the name of your device:</p> -->
+      <ul id="supportedDevices" class="list">
         <li id="id-{{ device.id }}" data-ng-repeat="device in supportedDevices | filter: filters.deviceName | orderBy: 'name'" data-ng-click="setDevice(device.id)">{{ device.name }}</li>
       </ul>
     </div><!-- .step-1 -->

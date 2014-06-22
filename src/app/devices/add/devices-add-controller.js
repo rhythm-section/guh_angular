@@ -1,4 +1,4 @@
-devices.controller( 'devicesAddController', function($scope, $log, Restangular, $state) {
+devices.controller('devicesAddController', function($scope, $log, Restangular, $state) {
   // add device
   $scope.addDevice = function() {
     var params = {};
@@ -24,6 +24,7 @@ devices.controller( 'devicesAddController', function($scope, $log, Restangular, 
       }
     });
 
+    // add device
     Restangular.all('devices').customPOST(params).then(function(response) {
       // TODO: do something with the response (check if everything worked)
       // console.log(response);
