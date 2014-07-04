@@ -25,6 +25,7 @@
     "grunt-contrib-cssmin": "^0.9.0",
     "grunt-contrib-sass": "^0.7.3",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-grunticon": "^1.2.6",
     "grunt-karma": "^0.8.3",
     "karma": "^0.12.16",
     "karma-chrome-launcher": "^0.1.3",

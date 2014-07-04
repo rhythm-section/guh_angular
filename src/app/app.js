@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router', 'home', 'devices', 'rules', 'settings']);
+var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'home', 'devices', 'rules', 'settings']);
 
 // app.config(headers: {
 //   'Access-Control-Allow-Origin': '*',
@@ -37,12 +37,19 @@ app.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
     .state('devices', {
       url: '/devices',
       templateUrl: 'devices/list/devices-list.html',
-      controller: 'devicesListController'
+      controller: 'DevicesListController',
+      resolve: {
+        installedDevices: devicesListController.getDevices
+      }
     })
     .state('devices.add', {
       url: '/add',
       templateUrl: 'devices/add/devices-add.html',
-      controller: 'devicesAddController'
+      controller: 'DevicesAddController',
+      resolve: {
+        vendors: devicesAddController.getVendors,
+        deviceClasses: devicesAddController.getDeviceClasses
+      }
     })
     .state('devices.edit', {
       // url: '/edit',

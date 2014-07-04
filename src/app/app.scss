@@ -72,36 +72,44 @@ a.button {
   &.circle {
     background-color: $white;
     border-radius: 50%;
-    color: $grey-dark;
+    color: $beige-dark;
     @include rem(height, 4.8);
     @include rem(width, 4.8);
 
-    // &:hover {
-    //   background-color: $green-light;
-    // }
+    &.add {
+      background-color: $green-light;
 
-    // &:active {
-    //   background-color: $green-dark;
-    //   color: $green-light;
-    // }
+      &:hover {
+        background-color: $green-dark;
+      }
 
-//     &:hover {
-//       background-color: $bgc-highlight-color-hover;
-//       border-color: $bc-highlight-color-hover;
-//       color: $c-highlight-color-hover;
-//     }
+      &:active {
+        background-color: $green-dark;
+        color: $green-light;
+      }
+    }
 
-//     &.add:hover {
-//       background-color: $bgc-highlight-color-hover-add;
-//       border-color: $bc-highlight-color-hover-add;
-//       color: $c-highlight-color-hover-add;
-//     }
+    &.edit {
+      background-color: $green-light;
 
-//     &.delete:hover {
-//       background-color: $bgc-highlight-color-hover-delete;
-//       border-color: $bc-highlight-color-hover-delete;
-//       color: $c-highlight-color-hover-delete;
-//     }
+      &:hover {
+        background-color: $green-dark;
+      }
+
+      &:active {
+        background-color: $green-dark;
+        color: $green-light;
+      }
+    }
+
+    &.delete {
+      background-color: $red-light;
+
+      &:hover {
+        background-color: $red-dark;
+        color: $red-light;
+      }
+    }
   }
 }
 
@@ -156,45 +164,61 @@ form {
 }
 
 .tiles {
-  overflow: auto;
-  width: 100%;
-
   li {
     background-color: $white;
-    border: $bw-normal solid $beige-light;
-    cursor: pointer;
-    float: left;
+    border-bottom: $bw-normal solid $beige-light;
     position: relative;
-    width: 50%;
-
-    &:after {
-      content: "";
-      display: block;
-      padding-top: 100%;
-    }
 
     div {
-      @include rem(padding, 1.2);
-      position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        top: 0;
+      @include rem(padding, 1.8, 10.8, 1.8, 1.2);
 
-      &:hover {
-        background-color: $green-light;
-        color: $white;
-      }
-
-      h3 {
-        @include rem(padding, 0, 1.2);
+      &.meta {
+        @include rem(padding, 0.6);
         position: absolute;
-          @include rem(bottom, 1.2);
-          left: 0;
-        text-align: center;
-        width: 100%;
+          right: 0;
+          top: 0;
+
+        button {
+          @include appearance(none);
+          border: none;
+          border-radius: 50%;
+          color: $white;
+          cursor: pointer;
+          display: inline-block;
+          @include rem(height, 3.6);
+          @include rem(width, 3.6);
+        }
+
+        .add {
+          background-color: $green-light;
+
+          &:hover {
+            background-color: $green-dark;
+            color: $white;
+          }
+
+          &:active {
+            background-color: $green-dark;
+            color: $green-light;
+          }
+        }
+
+        .delete {
+          background-color: $red-light;
+          @include rem(margin-left, 0.6);
+
+          &:hover {
+            background-color: $red-dark;
+            color: $white;
+          }
+
+          &:active {
+            background-color: $red-dark;
+            color: $red-light;
+          }
+        }
       }
-    }
+    }    
   }
 }
 
@@ -510,8 +534,49 @@ body {
 }
 
 .tiles {
+  overflow: auto;
+  width: 100%;
+
   li {
+    background-color: $white;
+    border: $bw-normal solid $beige-light;
+    cursor: pointer;
+    float: left;
+    position: relative;
     width: 25%;
+
+    &:after {
+      content: "";
+      display: block;
+      padding-top: 100%;
+    }
+
+    &> div {
+      @include rem(padding, 1.2);
+      position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+
+      // &:hover {
+      //   background-color: $green-light;
+      //   color: $white;
+      // }
+    }
+
+    .meta {
+      @include rem(margin, 2.4);
+    }
+
+    h3 {
+      @include rem(padding, 0, 1.2);
+      position: absolute;
+        @include rem(bottom, 1.2);
+        left: 0;
+      text-align: center;
+      width: 100%;
+    }
   }
 }
 

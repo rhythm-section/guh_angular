@@ -2,11 +2,15 @@
 
 <!-- <p class="dev-info" ng-repeat="vendor in supportedVendors">{{ vendor }}</p> -->
 <!-- <p class="dev-info" ng-repeat="device in supportedDevices">{{ device }}</p> -->
+<!-- <p class="dev-info" ng-repeat="device in installedDevices">{{ device }}</p> -->
 
 <ul id="installed-devices" class="tiles">
   <li class="add">
-    <div ui-sref="devices.add">
+    <div>
       <h3>Add new device</h3>
+      <div class="meta">
+        <button class="add circle" ui-sref="devices.add">+</button>
+      </div>
     </div>
 
 <!--     <div class="meta">
@@ -15,14 +19,17 @@
   </li>
   <li data-ng-repeat="device in installedDevices">
     <!-- <div data-ng-click="editDevice(device.id)"> -->
-    <div ui-sref="devices.edit({deviceId: device.id})">
+    <!-- <div ui-sref="devices.edit({deviceId: device.id})"> -->
+    <div>
       <h3>{{ device.name }}</h3>
       <h4>{{ device.vendor }}</h4>
+
+      <div class="meta">
+        <!-- <button class="edit circle" data-ng-click="editDevice(device.id)">i</button> -->
+        <!-- <button class="delete circle" data-ng-click="deleteDevice(device.id)">-</button> -->
+        <button class="delete circle" data-ng-click="deleteDevice(device)">-</button>
+      </div>
     </div>
-<!--     <div class="meta">
-      <button class="circle" data-ng-click="editDevice(device.id)">i</button>
-      <button class="delete circle" data-ng-click="deleteDevice(device.id)">-</button>
-    </div> -->
   </li>
 </ul>
 
