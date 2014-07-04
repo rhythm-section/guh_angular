@@ -1,0 +1,11 @@
+<!-- vendor filter & list -->
+<p>Select the vendor of your device:</p>
+
+<!-- <p>
+  <label for="vendor-name">Filter the vendor of your device:</label>
+  <input id="vendor-name" data-ng-model="filters.vendorName" data-ng-enter="test()" type="text" placeholder="guh" />
+</p> -->
+
+<ul id="supportedVendors" class="list">
+  <li id="id-{{ vendor.id }}" data-ng-class="{ active: isSelectedVendor(vendor) }" data-ng-repeat="vendor in supportedVendors | filter: filters.vendorName | orderBy: 'name' " data-ng-click="selectVendor(vendor)">{{ vendor.name }}</li>
+</ul>

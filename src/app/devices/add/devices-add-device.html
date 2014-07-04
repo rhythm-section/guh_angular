@@ -1,0 +1,11 @@
+<!-- device filter & list -->
+<p>Select the name of your device:</p>
+
+<!-- <p>
+  <label for="device-name">Filter the name of your device:</label>
+  <input id="device-name" data-ng-model="filters.deviceName" type="text" placeholder="WiFi Device" />
+</p> -->
+
+<ul id="supportedDevices" class="list">
+  <li id="id-{{ device.id }}" data-ng-class="{ active: isSelectedDevice(device) }" data-ng-repeat="device in supportedDevices | filter: filters.deviceName | orderBy: 'name'" data-ng-click="selectDevice(device)">{{ device.name }}</li>
+</ul>

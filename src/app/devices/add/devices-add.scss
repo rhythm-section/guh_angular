@@ -1,34 +1,65 @@
-// @import "all";
+@import "all";
 
 
-// /******************************************************************************/
-// /*********************************** MOBILE ***********************************/
-// /******************************************************************************/
+/******************************************************************************/
+/*********************************** MOBILE ***********************************/
+/******************************************************************************/
 
+.wizard-navigation {
+  @include rem(padding, 1.2);
+  text-align: center;
 
-// #device-wizard {
-//   @include rem(padding, 6.0, 0, 0);
+  li {
+    display: inline-block;
+    @include rem(margin, 0, 1.2);
 
-//   ul {
-//     @include rem(margin, 0, 0, 2.4);
-//   }
+    a,
+    span {
+      display: block;
+    }
 
-//   li {
-//     background-color: $bgc-normal;
-//     border-top: 1px solid $bc-normal;
-//     cursor: pointer;
-//     @include rem(padding, 0.6, 1.2);
+    a {
+      color: $grey-dark;
+      @include rem(font-size, 1);
+      text-transform: uppercase;
 
-//     &:hover {
-//       background-color: $bgc-highlight-color-hover-add;
-//     }
+      &.active span {
+        background-color: $green-light;
+        color: $white;
+      }
+    }
 
-//     &:first-child {
-//       border-top: none;
-//     }
-//   }
+    span {
+      background-color: $beige-light;
+      border-radius: 50%;
+      @include rem(font-size, 1.2);
+      @include rem(height, 4.8);
+      @include rem(margin-bottom, 0.6);
+      @include rem(padding, 1.5);
+      @include rem(width, 4.8);
+      text-transform: uppercase;
 
-//   button {
-//     width: 100%;
-//   }
-// }
+      &:hover {
+        background-color: $green-light;
+        color: $white;
+      }
+
+      &:active {
+        color: $green-dark;
+      }
+    }
+  }
+}
+
+#device-states {
+  p {
+    @include rem(padding, 1.2);
+  }
+}
+
+.wizard form {
+  label {
+    display: block;
+    @include rem(padding, 0.6, 1.2);
+  }
+}

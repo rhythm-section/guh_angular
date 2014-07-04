@@ -1,38 +1,20 @@
-<!-- TODO: disable atuocomplete in safari? what is with other browsers? safari => http://stackoverflow.com/questions/22661977/disabling-safari-autofill-on-usernames-and-passwords -->
 <div class="overlay">
+  <a id="close-wizard" class="close circle button" ui-sref="devices">x</a>
 
-  <form id="device-wizard" autocomplete="off">
+  <div class="wizard">
+    <ul class="wizard-navigation">
+      <li><a data-ng-class="{ active: $state.is('devices.add.vendor') }" ui-sref=".vendor"><span>1</span> Vendor</a></li>
+      <li><a data-ng-class="{ active: $state.is('devices.add.device') }" ui-sref=".device"><span>2</span> Name</a></li>
+      <li><a data-ng-class="{ active: $state.is('devices.add.settings') }" ui-sref=".settings"><span>3</span> Settings</a></li>
+    </ul>
 
-    <a id="close-wizard" class="close circle button" ui-sref="devices">x</a>
+    <form id="device-wizard" ng-submit="processForm()">
+      <div id="device-states" ui-view></div>
+    </form>
+  </div>
+</div>
 
-    <div class="step-1">
-      <!-- vendor filter & list -->
-      <p>
-        <label for="vendor-name">Filter the vendor of your device:</label>
-        <input id="vendor-name" data-ng-model="filters.vendorName" data-ng-enter="test()" type="text" placeholder="guh" />
-      </p>
-
-      <!-- <p>Select the vendor of your device:</p> -->
-      <ul id="supportedVendors" class="list">
-        <li id="id-{{ vendor.id }}" data-ng-repeat="vendor in supportedVendors | filter: filters.vendorName | orderBy: 'name' " data-ng-click="selectVendor(vendor.id)">{{ vendor.name }}</li>
-      </ul>
-
-      <!-- device filter & list -->
-      <p>
-        <label for="device-name">Filter the name of your device:</label>
-        <input id="device-name" data-ng-model="filters.deviceName" type="text" placeholder="WiFi Device" />
-      </p>
-
-      <!-- <p>Select the name of your device:</p> -->
-      <ul id="supportedDevices" class="list">
-        <li id="id-{{ device.id }}" data-ng-repeat="device in supportedDevices | filter: filters.deviceName | orderBy: 'name'" data-ng-click="selectDevice(device.id)">{{ device.name }}</li>
-      </ul>
-    </div><!-- .step-1 -->
-
-    <div id="device-params" class="step-2 wizard"></div> <!-- .step-2 -->
-
-    <button class="rect" data-ng-click="addDevice()">add device +</button>
-
-  </form>
-
-</div> <!-- #device-wizard.overlay -->
+<!-- show our formData as it is being typed -->
+<pre>
+  {{ wizardData }}
+</pre>

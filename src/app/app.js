@@ -51,6 +51,18 @@ app.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
         deviceClasses: devicesAddController.getDeviceClasses
       }
     })
+    .state('devices.add.vendor', {
+      url: '/vendor',
+      templateUrl: 'devices/add/devices-add-vendor.html'
+    })
+    .state('devices.add.device', {
+      url: '/device',
+      templateUrl: 'devices/add/devices-add-device.html'
+    })
+    .state('devices.add.settings', {
+      url: '/settings',
+      templateUrl: 'devices/add/devices-add-settings.html'
+    })
     .state('devices.edit', {
       // url: '/edit',
       params: ['deviceId'],

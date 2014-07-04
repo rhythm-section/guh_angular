@@ -385,10 +385,15 @@ form {
   @include rem(padding, 6, 1.2, 1.2);
 }
 
-// ul.list {
+ul.list {
 //   width: 100%;
 
-//   li {
+  li {
+    &.active {
+      background-color: $green-light;
+      color: $white;
+    }
+
 //     background-color: $bgc-highlight-light;
 //     border-bottom: 1px solid $bc-highlight-light;
 //     cursor: pointer;
@@ -413,7 +418,7 @@ form {
 // //         }
 // //       }
 // //     }
-//   }
+  }
 
 // //   .meta {
 // //     overflow: auto;
@@ -426,7 +431,7 @@ form {
 // //       float: left;
 // //     }
 // //   }
-// }
+}
 
 // // #device-wizard {
 // //   margin: 0 auto;
