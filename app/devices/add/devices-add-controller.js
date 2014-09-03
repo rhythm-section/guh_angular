@@ -1,0 +1,3 @@
+devices.controller('DevicesAddController', function() {
+  
+});

@@ -1,0 +1,3 @@
+settings.controller('SettingsController', function() {
+
+});

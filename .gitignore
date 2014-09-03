@@ -1,0 +1,8 @@
+# General
+.DS_Store
+.sass-cache
+
+# Folders
+/bower_components
+/node_modules
+/temp

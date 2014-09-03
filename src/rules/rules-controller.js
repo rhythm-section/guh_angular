@@ -1,0 +1,3 @@
+rules.controller('RulesController', function() {
+  
+});

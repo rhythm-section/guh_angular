@@ -1,0 +1,23 @@
+{
+  "homepage": "http://www.guh.guru",
+  "license": "GPLv2",
+  "name": "guh_angular",
+  "version": "0.0.0",
+  "authors": [
+    "Lukas Mayerhofer <lmayerhofer.mmt-m2012@fh-salzburg.at>"
+  ],
+  "description": "guh web interface",
+  "main": "Gruntfile.js",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.2.23",
+    "angular-ui-router": "~0.2.11",
+    "restangular": "~1.4.0",
+    "fastclick": "~1.0.3",
+    "es5-shim": "~4.0.3",
+    "json3": "~3.3.2"
+  },
+  "devDependencies": {
+    "reset-scss": "*"
+  }
+}

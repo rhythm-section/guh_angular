@@ -1,0 +1,1 @@
+var settings = angular.module('app.settings', []);
