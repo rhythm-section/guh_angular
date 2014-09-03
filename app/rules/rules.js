@@ -1,1 +1,0 @@
-var rules = angular.module('app.rules', []);

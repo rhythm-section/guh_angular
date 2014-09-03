@@ -1,3 +1,0 @@
-rules.controller('RulesController', function() {
-  
-});

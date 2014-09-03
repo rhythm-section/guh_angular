@@ -30,10 +30,20 @@
       },
 
       clean: {
-        build: [
-          '<%= config.path.temp.root %>',
-          '<%= config.path.app.root %>'
-        ]
+        build: {
+          options: {
+            force: true
+          },
+          files: [{
+            dot: true,
+            src: [
+              '<%= config.path.temp.root %>',
+              '<%= config.path.app.root %>',
+              '.sass-cache',
+              '../guh_rails/public/'
+            ]
+          }]
+        }
       },
 
       copy: {
@@ -41,7 +51,7 @@
           files: [{
             expand: true,
             cwd: '<%= config.path.src.root %>/',
-            src: ['**/*', '!**/*.{scss,png,jpg,gif}'],
+            src: ['**/*', '!**/*.{scss,png,jpg,gif}', '!lib/sass'],
             dest: '<%= config.path.app.root %>/'
           }]
         },
@@ -49,7 +59,7 @@
           files: [{
             expand: true,
             cwd: '<%= config.path.app.root %>/',
-            src: ['**/*', '!**/*.{scss,png,jpg,gif}'],
+            src: ['**/*', '!**/*.{scss,png,jpg,gif}', '!lib/sass'],
             dest: '../guh_rails/public/'
           }]
         }
@@ -105,7 +115,7 @@
       watch: {
         rails: {
           files: ['Gruntfile.js', 'karma.js', '<%= config.path.src.root %>/**/*'],
-          tasks: ['copy', 'jshint']
+          tasks: ['clean', 'sass', 'cssmin', 'copy', 'jshint']
         }
       }
 
@@ -113,9 +123,9 @@
 
     grunt.registerTask('build', [
       'clean',
-      'copy',
       'sass',
       'cssmin',
+      'copy',
       'bower-install-simple'
     ]);
 

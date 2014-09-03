@@ -1,3 +1,0 @@
-devices.controller('DevicesListController', function() {
-  
-});
