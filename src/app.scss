@@ -1,5 +1,7 @@
 @import "all";
 
+@import "devices/devices.scss";
+
 
 /*
  *  1. General
@@ -11,7 +13,7 @@
 
 html,
 body {
-  height: 100%;
+  height: 100%; 
 }
 
 html {
@@ -25,6 +27,10 @@ body {
   font-weight: 500;
   @include linear-gradient($green-light, $green-dark);
   line-height: 1.5;
+}
+
+strong {
+  font-weight: 600;
 }
 
 a {
@@ -50,11 +56,12 @@ h2 {
 
 
 /*
- *  2. Layout
+ *  2. Classes
  */
 
-#top-bar {
-  background-color: $white-transparent-light;
+.top-bar {
+  // background-color: $white-transparent-light;
+  background-color: $green-highlight-medium;
   @include rem(height, 5.5);
   @include rem(padding, 1.3, 0, 1.2);
   position: relative;
@@ -71,20 +78,38 @@ h2 {
     @include rem(width, 5.5);
 
     &:hover {
-      background-color: $white-transparent-dark;
+      // background-color: $white-transparent-dark;
+      background-color: $green-highlight-light;
     }
 
     &.navigation {
-      border-right: $bw-normal solid $white-transparent-dark;
+      // border-right: $bw-normal solid $white-transparent-dark;
+      border-right: $bw-normal solid $green-highlight-light;
       left: 0;
     }
 
-    &.add {
-      border-left: $bw-normal solid $white-transparent-dark;
+    &.add,
+    &.close {
+      // border-left: $bw-normal solid $white-transparent-dark;
+      border-left: $bw-normal solid $green-highlight-light;
       right: 0;
     }
   }
 }
+
+.overlay {
+  @include linear-gradient($green-light, $green-dark);
+  position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+
+/*
+ *  3. Layout
+ */
 
 #main-navigation {
   display: none;
@@ -94,7 +119,7 @@ h2 {
   }
 
   a {
-    border-bottom: $bw-normal solid $white-transparent-light;
+    border-bottom: $bw-normal solid $green-highlight-light;
     display: block;
     @include rem(padding, 0.8);
   }
@@ -102,7 +127,7 @@ h2 {
 
 #content {
   h2 {
-    background-color: $white-transparent-medium;
+    background-color: $green-highlight-dark;
     @include rem(padding, 0.7, 0, 0.6);
   }
 }

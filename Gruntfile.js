@@ -74,9 +74,9 @@
             '<%= config.path.bower.root %>/reset-scss/'
           ],
           precision: 6,
-          quiet: true,              // added to get rid of SASS 3.3 warnings => remove
-          sourcemap: true,
-          style: 'nested'
+          quiet: true              // added to get rid of SASS 3.3 warnings => remove
+          // sourcemap: true,
+          // style: 'nested'
         },
         build: {
           files: [{

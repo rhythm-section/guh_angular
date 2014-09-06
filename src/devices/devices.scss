@@ -1,3 +1,46 @@
-body {
-  background-color: #fff;
+@import "all";
+
+.tiles {
+  li {
+    display: inline-block;
+    @include rem(font-size, 0.8);
+    margin-right: 5%;
+    position: relative;
+    width: 30%;
+  }
+
+  li:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+
+  li:nth-child(3n+3) {  // &:nth-child not working => don't know why
+    margin-right: 0;
+  }
+
+  // li div {
+  li a {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+
+    &:hover,
+    &:active {
+      // background-color: $white-transparent-medium;
+      background-color: $green-highlight-dark;
+    }
+
+    h3 {
+      @include rem(padding, 1.6);
+      position: absolute;
+        bottom: 0;
+      text-align: center;
+      width: 100%;
+    }
+  }
 }

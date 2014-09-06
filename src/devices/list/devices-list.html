@@ -1,2 +1,14 @@
 <h2>Devices</h2>
-<h3>List View</h3>
+
+<ul class="tiles">
+  <li data-ng-repeat="device in installedDevices">
+<!--     <div>
+      <h3>{{ device.name }}</h3>
+    </div> -->
+    <a ui-sref="devices.detail({ deviceId: device.id })">
+      <h3>{{ device.name }}</h3>
+    </a>
+  </li>
+</ul>
+
+<div ui-view></div>

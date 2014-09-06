@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link type="text/css" rel="stylesheet" href="app.min.css">
-
+    
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700,400' rel='stylesheet' type='text/css'>
 
@@ -30,6 +30,9 @@
     <script type="text/javascript" src="rules/rules.js"></script>
     <script type="text/javascript" src="settings/settings.js"></script>
     
+    <!-- Scripts: Services -->
+    <script type="text/javascript" src="components/api/device-service.js"></script>
+
     <!-- Scripts: Controllers -->
     <script type="text/javascript" src="dashboard/dashboard-controller.js"></script>
     <script type="text/javascript" src="devices/add/devices-add-controller.js"></script>
@@ -50,7 +53,7 @@
     <![endif]-->
 
     <div id="app-container">
-      <header id="top-bar" ng-include="'components/layout/top-bar.html'"></header>
+      <header class="top-bar" ng-include="'components/layout/top-bar.html'"></header>
       <nav id="main-navigation" ng-include="'components/layout/navigation.html'"></nav>  
       <div id="content" ui-view></div>
     </div>
