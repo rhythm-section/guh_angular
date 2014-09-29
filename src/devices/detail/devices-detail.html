@@ -5,18 +5,29 @@
 
   <h2>{{ device.name }}</h2>
 
-<!--   <p>Parameters</p>
+<!--   <p>Settings</p>
   <ul data-ng-repeat="param in deviceParams">
     <li data-ng-repeat="(key, value) in param">
       <strong>{{ key }}:</strong> {{ value }}
     </li>
   </ul> -->
 
-  <!-- <p>Actions</p>
   <ul>
     <li data-ng-repeat="action in deviceActions">
+      <div>
+        <p><strong>{{ action.name }}</strong></p>
+        <ul>
+          <li data-ng-repeat="param in action.params" data-ng-switch="param.type">
+            <div>
+              <guh-toggle data-ng-switch-when="bool">{{ param.name }}</guh-toggle>
+            </div>
+          </li>
+        </ul>
+      </div>
 
+      <!-- {{ action.id }} -->
+      
     </li>
-  </ul> -->
+  </ul>
 
 </div>
