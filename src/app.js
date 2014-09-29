@@ -14,6 +14,7 @@ app.config(function(RestangularProvider, $httpProvider, $stateProvider, $urlRout
       templateUrl: 'dashboard/dashboard.html',
       controller: 'DashboardController'
     })
+
     .state('devices', {
       url: '/devices',
       templateUrl: 'devices/list/devices-list.html',
@@ -24,6 +25,7 @@ app.config(function(RestangularProvider, $httpProvider, $stateProvider, $urlRout
       },
       controller: 'DevicesListController'
     })
+
     .state('devices.detail', {
       url: '/:deviceId/detail',
       // params: ['deviceId'],
@@ -31,15 +33,22 @@ app.config(function(RestangularProvider, $httpProvider, $stateProvider, $urlRout
       resolve: {
         currentDevice: function($stateParams, deviceService) {
           return deviceService.getOne($stateParams.deviceId);
+        },
+        currentDeviceActions: function($stateParams, actionService) {
+          return actionService.getAll($stateParams.deviceId).then(function(actions) {
+            return actions;
+          });
         }
       },
       controller: 'DevicesDetailController'
     })
+
     .state('rules', {
       url: '/rules',
       templateUrl: 'rules/rules.html',
       controller: 'RulesController'
     })
+
     .state('settings', {
       url: '/settings',
       templateUrl: 'settings/settings.html',
