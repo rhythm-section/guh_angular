@@ -1,0 +1,3 @@
+<ul class="list">
+  <li id="id-{{ device.id }}" data-ng-class="{ active: isSelectedDevice(device) }" data-ng-repeat="device in supportedDevices | filter: filters.deviceName | orderBy: 'name'" data-ng-click="selectDevice(device)">{{ device.name }}</li>
+</ul>

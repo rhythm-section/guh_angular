@@ -1,4 +1,4 @@
-devices.directive('guhToggle', function() {
+devices.directive('guhToggle', function(actionService) {
   var uniqueId = 1;
 
   return {
@@ -18,12 +18,25 @@ devices.directive('guhToggle', function() {
         } else {
           element.find('input').attr('checked', true);
           isChecked = true;
+
+          console.log('data attributes:');
+          console.log(attributes);
+
+          var deviceId = scope.$parent.$parent.$parent.$parent.device.id;
+          var actionId = scope.$parent.$parent.$parent.action.id;
+          var actionParams = scope.$parent.$parent.$parent.action.params;
+          console.log('Scope:');
+          console.log(scope);
+
+          actionService.execute(deviceId, actionId, actionParams);
         }
       });
     },
     replace: true,
     restrict: 'E',
-    scope: {},
+    scope: {
+      param: "=param"
+    },
     templateUrl: 'components/inputs/toggle-switch/inputs-toggle-switch.html',
     $$tlb: true,
     transclude: true

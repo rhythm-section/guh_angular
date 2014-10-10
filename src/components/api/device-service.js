@@ -11,6 +11,9 @@ var deviceService = app.factory('deviceService', ['Restangular', function(Restan
     },
     addOne: function(params) {
       return Device.customPOST(params);
+    },
+    removeOne: function(device) {
+      return device.remove();
     }
   };
 }]);

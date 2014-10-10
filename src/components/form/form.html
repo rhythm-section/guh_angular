@@ -1,0 +1,4 @@
+<div>
+  <data-form-field data-ng-repeat="field in formFields" form-field="field">{{ field.name }}</data-form-field>
+  <button id="form-{{ formId }}" class="submit" data-ng-click="onBeforeSubmit()">Add Device</button>
+</div>

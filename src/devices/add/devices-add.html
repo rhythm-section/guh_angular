@@ -1,2 +1,34 @@
-<h2>Devices</h2>
-<h3>Add View</h3>
+<div class="overlay">
+  
+  <div class="top-bar">
+    <a id="close-overlay" class="close button" ui-sref="devices">x</a>
+  </div>
+
+  <h2>Devices</h2>
+
+  <!-- <data-wizard on-before-step-change="log(event)" on-step-changing="log(event)" on-after-step-change="log(event)"> -->
+  <data-wizard>
+
+    <data-wizard-step title="Vendor">
+      <ul class="list">
+        <li id="id-{{ vendor.id }}" data-ng-class="{ active: isSelectedVendor(vendor) }" data-ng-repeat="vendor in supportedVendors | filter: filters.vendorName | orderBy: 'name' " data-ng-click="selectVendor(vendor)">{{ vendor.name }}</li>
+      </ul>
+    </data-wizard-step>
+
+    <data-wizard-step title="Device">
+      <ul class="list">
+        <li id="id-{{ device.id }}" data-ng-class="{ active: isSelectedDevice(device) }" data-ng-repeat="device in supportedDevices | filter: filters.deviceName | orderBy: 'name'" data-ng-click="selectDevice(device)">{{ device.name }}</li>
+      </ul>
+    </data-wizard-step>
+
+    <data-wizard-step title="Settings" data="{createMethod: createMethod, setupMethod: setupMethod}">
+<!--       <div ng-show="device.createMethod == 'CreateMethodDiscovery' && device.setupMethod == 'SetupMethodJustAdd'">
+        <p>Discover Mode</p>
+      </div> -->
+      <data-form form-id="add-device" form-fields="selectedDevice.paramTypes" on-finish="addDevice(deviceData)"></data-form>
+      <!-- <data-form form-id="add-device" form-fields="selectedDevice.paramTypes"></data-form> -->
+    </data-wizard-step>
+
+  </data-wizard>
+
+</div>
