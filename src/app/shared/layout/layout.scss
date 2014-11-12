@@ -1,0 +1,93 @@
+@import "all.scss";
+
+#navigation-bar {  
+  // background-color: inherit;
+  background-color: $c-green-standard;
+  border-bottom: $bw-standard $bs-standard rgba($c-white, 0.2);
+  @include rem(height, 4.8);
+  width: 100%;
+  z-index: 10;
+
+  h1 {
+    @include rem(padding, 1.6, 4.8);
+    position: inherit;
+      top: 0;
+    text-align: center;
+    text-transform: uppercase;
+    width: inherit;
+  }
+
+  button {
+    @include appearance(none);
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    @include rem(font-size, 1.6);
+    @include rem(height, 4.8);
+    @include rem(line-height, 2.4);
+    outline: none;
+    @include rem(padding, 1.2, 0);
+    position: inherit;
+      top: 0;
+    @include rem(width, 4.8);
+    z-index: 20;
+  }
+
+  #navigation-add {
+    left: 0;
+    @include rem(padding-left, 2.4);
+    text-align: left;
+  }
+
+  #navigation-rooms {
+    right: 0;
+    @include rem(padding-right, 2.4);
+    text-align: right;
+  }
+}
+
+#tab-bar {
+  background-color: rgba($c-white, 0.2);
+
+  ul {
+    overflow: auto;
+    width: 100%;
+  }
+
+  li {
+    float: left;
+    width: 33.333333%;
+
+    a {
+      display: block;
+      font-family: $ff-sans-serif-highlight;
+      @include rem(font-size, 1.2);
+      @include rem(line-height, 1.2);
+      @include rem(padding, 1.8, 0);
+      text-align: center;
+      text-transform: uppercase;
+      width: 100%;
+
+      &.current {
+        color: $c-green-dark;
+      }
+    }
+
+    &:first-child a {
+      @include rem(padding-left, 2.4);
+      text-align: left;
+    }
+
+    &:last-child a {
+      @include rem(padding-right, 2.4);
+      text-align: right;
+    }
+  }
+}
+
+// #navigation-add,
+// #navigation-rooms {
+//   h2 {
+//     @include rem(padding, 1.2, 2.4);
+//   }
+// }

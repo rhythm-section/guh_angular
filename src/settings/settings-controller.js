@@ -1,3 +1,0 @@
-settings.controller('SettingsController', function() {
-
-});

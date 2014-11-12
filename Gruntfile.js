@@ -23,8 +23,11 @@
           temp: {
             root: 'temp/'
           },
-          app: {
-            root: 'app/'
+          dist: {
+            root: 'dist/'
+          },
+          rails: {
+            root: '../guh_rails'
           }
         }
       },
@@ -38,9 +41,9 @@
             dot: true,
             src: [
               '<%= config.path.temp.root %>',
-              '<%= config.path.app.root %>',
+              '<%= config.path.dist.root %>',
               '.sass-cache',
-              '../guh_rails/public/'
+              '<%= config.path.rails.root %>/public/'
             ]
           }]
         }
@@ -51,26 +54,58 @@
           files: [{
             expand: true,
             cwd: '<%= config.path.src.root %>/',
-            src: ['**/*', '!**/*.{scss,png,jpg,gif}', '!lib/sass'],
-            dest: '<%= config.path.app.root %>/'
+            src: ['**/*', '!**/*.{scss,png,jpg,gif}', '!app/shared/sass'],
+            dest: '<%= config.path.dist.root %>/'
+          }]
+        },
+        bower: {
+          files: [{
+            expand: true,
+            cwd: '<%= config.path.bower.root %>/',
+            src: '**/*',
+            dest: '<%= config.path.dist.root %>/assets/lib/'
           }]
         },
         rails: {
           files: [{
             expand: true,
-            cwd: '<%= config.path.app.root %>/',
-            src: ['**/*', '!**/*.{scss,png,jpg,gif}', '!lib/sass'],
-            dest: '../guh_rails/public/'
+            cwd: '<%= config.path.dist.root %>/',
+            src: ['**/*', '!**/*.{scss,png,jpg,gif}', '!app/shared/sass'],
+            dest: '<%= config.path.rails.root %>/public/'
           }]
-        }
+        },
       },
+
+      // scp: {
+      //   options: {
+      //       host: '192.168.1.43',
+      //       username: 'root',
+      //       password: 'guh',
+      //       readyTimeout: 30000
+      //   },
+      //   rails: {
+      //     files: [{
+      //       expand: true,
+      //       cwd: '<%= config.path.app.root %>/',
+      //       src: ['**/*', '!**/*.{scss,png,jpg,gif}', '!lib/sass'],
+      //       dest: '../opt/guh-web-build/guh_rails/public/'
+      //     }]
+      //   }
+      // },
+
+      // livereload: {
+      //   options: {
+      //     livereload: true
+      //   },
+      //   files: ['app/index.html']
+      // },
 
       sass: {
         options: {
           lineNumbers: true,
           loadPath: [
             require('node-bourbon').includePaths,
-            '<%= config.path.src.root %>/lib/sass/',
+            '<%= config.path.src.root %>/app/shared/sass/',
             '<%= config.path.bower.root %>/reset-scss/'
           ],
           precision: 6,
@@ -95,29 +130,59 @@
             expand: true,
             cwd: '<%= config.path.temp.root %>/',
             src: '**/*.css',
-            dest: '<%= config.path.app.root %>/',
+            dest: '<%= config.path.dist.root %>/',
             ext: '.min.css'
           }]
         }
       },
 
-      'bower-install-simple': {
-        options: {
-          color: true,
-          production: false
-        }
+      jshint: {
+        watch: ['Gruntfile.js', 'karma.js', 'src/**/*.js']
       },
 
-      jshint: {
-        watch: ['Gruntfile.js', 'karma.js', 'src/**/*.js', '!src/lib/**/*.js']
+      karma: {
+        unit: {
+          configFile: 'config/karma.js',
+          background: true
+        }
       },
 
       watch: {
         rails: {
           files: ['Gruntfile.js', 'karma.js', '<%= config.path.src.root %>/**/*'],
-          tasks: ['clean', 'sass', 'cssmin', 'copy', 'jshint']
+          tasks: [
+            'clean',
+            'sass',
+            'cssmin',
+            'copy',
+            'jshint'
+          ]
+        },
+        karma: {
+          files: ['<%= config.path.src.root %>/**/*'],
+          tasks: ['karma:unit:run']
         }
       }
+
+      // connect: {
+      //   server: {
+      //     options: {
+      //       hostname: '127.0.0.1',
+      //       port: 9000,
+      //       base: 'app/'
+      //       // livereload: true
+      //     }
+      //   }
+      // },
+
+      // docular: {
+      //   useHtml5Mode: true,
+      //   docular_webapp_target: '/docs',
+      //   showAngularDocs: true,
+      //   showDocularDocs: true,
+      //   examples: {},
+      //   groups: []
+      // }
 
     });
 
@@ -126,10 +191,20 @@
       'sass',
       'cssmin',
       'copy',
-      'bower-install-simple'
+      'jshint',
+      'karma'
+    ]);
+
+    grunt.registerTask('test', [
+      'karma'
     ]);
 
     grunt.registerTask('dev', [
+      'clean',
+      'sass',
+      'cssmin',
+      'copy',
+      'jshint',
       'watch:rails'
     ]);
 

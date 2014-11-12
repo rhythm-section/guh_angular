@@ -1,49 +1,67 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" data-ng-app="app"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" data-ng-app="app"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" data-ng-app="app"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" data-ng-app="app"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" data-ng-app="guh"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" data-ng-app="guh"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" data-ng-app="guh"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" data-ng-app="guh"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
+
+    <!-- http://www.kylejlarson.com/blog/2011/fixed-elements-and-scrolling-divs-in-ios-5/ -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     
     <title>my home &middot; guh</title>
 
     <!-- Styles -->
-    <link type="text/css" rel="stylesheet" href="app.min.css">
+    <link type="text/css" rel="stylesheet" href="app/app.min.css">
     
     <!-- Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- Scripts: Dependencies -->
-    <script src="lib/bower_components/lodash/dist/lodash.js"></script>
-    <script src="lib/bower_components/angular/angular.js"></script>
-    <script src="lib/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="lib/bower_components/restangular/dist/restangular.js"></script>
-    <script src="lib/bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="assets/lib/lodash/dist/lodash.min.js"></script>
+    <script src="assets/lib/angular/angular.min.js"></script>
+    <script src="assets/lib/angular-animate/angular-animate.min.js"></script>
+    <script src="assets/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="assets/lib/restangular/dist/restangular.js"></script>
+    <script src="assets/lib/fastclick/lib/fastclick.js"></script>
 
     <!-- Scripts: Modules -->
-    <script type="text/javascript" src="app.js"></script>
-    <script type="text/javascript" src="dashboard/dashboard.js"></script>
-    <script type="text/javascript" src="devices/devices.js"></script>
-    <script type="text/javascript" src="rules/rules.js"></script>
-    <script type="text/javascript" src="settings/settings.js"></script>
-    
-    <!-- Scripts: Services -->
-    <script type="text/javascript" src="components/api/action-service.js"></script>
-    <script type="text/javascript" src="components/api/device-service.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/home/home.js"></script>
+    <script type="text/javascript" src="app/devices/devices.js"></script>
 
-    <!-- Scripts: Directives -->
-    <script type="text/javascript" src="components/inputs/toggle-switch/inputs-toggle-switch-directive.js"></script>
+    <!-- Scripts: Models -->
+    <!-- <script type="text/javascript" src="app/devices/devices-model.js"></script> -->
+
+    <!-- Scripts: Components -->
+    <script type="text/javascript" src="app/components/api/api.js"></script>
+    <script type="text/javascript" src="app/components/api/device-service.js"></script>
+    <script type="text/javascript" src="app/components/api/vendor-service.js"></script>
+
+    <script type="text/javascript" src="app/components/ui/ui.js"></script>
+
+    <script type="text/javascript" src="app/components/ui/form/form-directive.js"></script>
+    <script type="text/javascript" src="app/components/ui/form/form-field-directive.js"></script>
+
+    <script type="text/javascript" src="app/components/ui/modal/modal-directive.js"></script>
+
+    <script type="text/javascript" src="app/components/ui/wizard/wizard-directive.js"></script>
+    <script type="text/javascript" src="app/components/ui/wizard/wizard-step-directive.js"></script>
+
+    <!-- Scripts: Config -->
+    <script type="text/javascript" src="app/app-config.js"></script>
 
     <!-- Scripts: Controllers -->
-    <script type="text/javascript" src="dashboard/dashboard-controller.js"></script>
-    <script type="text/javascript" src="devices/add/devices-add-controller.js"></script>
-    <script type="text/javascript" src="devices/detail/devices-detail-controller.js"></script>
-    <script type="text/javascript" src="devices/list/devices-list-controller.js"></script>
-    <script type="text/javascript" src="rules/rules-controller.js"></script>
-    <script type="text/javascript" src="settings/settings-controller.js"></script>
+    <script type="text/javascript" src="app/app-controller.js"></script>
+
+    <script type="text/javascript" src="app/home/home-controller.js"></script>
+
+    <script type="text/javascript" src="app/devices/list/devices-list-controller.js"></script>
+    <script type="text/javascript" src="app/devices/add/devices-add-controller.js"></script>
+    <script type="text/javascript" src="app/devices/detail/devices-detail-controller.js"></script>
   </head>
 
   <body>
@@ -56,10 +74,6 @@
     <script src="lib/bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <div id="app-container">
-      <header class="top-bar" ng-include="'components/layout/top-bar.html'"></header>
-      <nav id="main-navigation" ng-include="'components/layout/navigation.html'"></nav>  
-      <div id="content" ui-view></div>
-    </div>
+    <div id="app-container" ui-view></div>
   </body>
 </html>

@@ -1,0 +1,31 @@
+<!-- <h2>Add Device</h2> -->
+
+<!-- <data-guh-modal></data-guh-modal> -->
+
+<data-guh-wizard control="devicesAdd.selectWizard">
+  <!-- <data-guh-wizard-step title="supported vendors"> -->
+  <data-guh-wizard-step>
+    <ul class="small list">
+      <li id="id-{{ vendor.id }}" data-ng-class="{ active: devicesAdd.isSelected(vendor) }" data-ng-repeat="vendor in devicesAdd.supportedVendors | filter: filters.vendorName | orderBy: 'name' " data-ng-click="devicesAdd.selectVendor(vendor)">{{ vendor.name }}</li>
+    </ul>
+  </data-guh-wizard-step>
+
+  <!-- <data-guh-wizard-step title="supported devices"> -->
+  <data-guh-wizard-step>
+    <!-- <h3 data-ng-click="wizardControl.nextStep()">Step 2</h3> -->
+
+    <ul class="small list">
+      <li id="id-{{ deviceClass.id }}" data-ng-class="{ active: devicesAdd.isSelected(deviceClass) }" data-ng-repeat="deviceClass in devicesAdd.supportedDeviceClasses | filter: filters.deviceName | orderBy: 'name'" data-ng-click="devicesAdd.selectDeviceClass(deviceClass)">{{ deviceClass.name }}</li>
+    </ul>
+  </data-guh-wizard-step>
+
+  <!-- <data-guh-wizard-step title="{{ devicesAdd.createMethodTitle }}"> -->
+  <data-guh-wizard-step>
+    <data-ng-include src="devicesAdd.createMethodTemplate"></data-ng-include>
+  </data-guh-wizard-step>
+
+  <!-- <data-guh-wizard-step title="{{ devicesAdd.setupMethodTitle }}"> -->
+  <data-guh-wizard-step>
+    <data-ng-include src="devicesAdd.setupMethodTemplate"></data-ng-include>
+  </data-guh-wizard-step>
+</data-guh-wizard>

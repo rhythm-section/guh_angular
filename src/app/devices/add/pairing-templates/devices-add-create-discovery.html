@@ -1,0 +1,15 @@
+<ul class="small list">
+  <li id="id-{{ device.id }}" data-ng-class="{ active: devicesAdd.isSelected(device) }" data-ng-repeat="device in devicesAdd.discoveredDevices | filter: filters.deviceName | orderBy: 'name'" data-ng-click="devicesAdd.addDevice(device)">
+    <h4>{{ device.title }}</h4>
+    <div class="meta">
+      <p>{{ device.id }}</p>
+      <p>{{ device.description }}</p>
+    </div>
+  </li>
+</ul>
+
+<data-guh-form form="settings" data-ng-show="devicesAdd.wizardData.deviceClass.discoveryParamTypes.length">
+  <data-guh-form-field form-field="param" data-ng-repeat="param in devicesAdd.wizardData.deviceClass.discoveryParamTypes"></data-guh-form-field>
+</data-guh-form>
+
+<button data-ng-click="devicesAdd.discoverDevices()" data-ng-show="devicesAdd.wizardData.deviceClass.discoveryParamTypes.length">Start search</button>

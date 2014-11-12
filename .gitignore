@@ -3,6 +3,8 @@
 .sass-cache
 
 # Folders
+/backup
 /bower_components
+/dist
 /node_modules
 /temp

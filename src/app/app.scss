@@ -1,0 +1,406 @@
+@import "all.scss";
+@import "shared/layout/layout.scss";
+
+
+/*
+ *  MOBILE
+ */
+
+/*  1. General
+ */
+
+*,
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  @include background(linear-gradient($c-green-standard, $c-turquoise-standard));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-size: 62.5%;    // 10px / 16px (= standard font-size in all modern browsers)
+}
+
+body {
+  color: $c-white;
+  font-family: $ff-sans-serif-normal;
+  @include rem(font-size, 1.6);
+  font-weight: 400;
+  @include rem(line-height, 1.6);
+}
+
+a {
+  color: $c-white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $ff-sans-serif-highlight;
+}
+
+/*  2. Components
+ */
+
+.view {
+  
+}
+
+.bar {
+  // background-color: rgba($c-white, 0.5);
+  @include rem(height, 4.8);
+  position: fixed;
+    left: 0;
+  width: 100%;
+
+  &.bottom {
+    bottom: 0;
+  }
+
+  &.top {
+    top: 0;
+  }
+}
+
+.small.list {
+  li {
+    border-bottom: $bw-standard $bs-standard rgba($c-white, 0.2);
+    @include rem(padding, 1.2);
+
+    // &:hover {
+    //   background-color: rgba($c-white, 0.2);
+    // }
+
+    &.active {
+      background-color: rgba($c-white, 0.4);
+    }
+  }
+}
+
+.large.list.view {
+  // @include linear-gradient($c-turquoise-standard, $c-green-standard);
+  // height: 100%;
+  @include rem(padding, 2.4);
+
+  li {
+    a {
+      display: block;
+      @include rem(font-size, 2.4);
+      @include rem(line-height, 7.2);
+      text-align: center;
+    }
+  }
+}
+
+.tiles {
+  overflow: auto;
+  width: 100%;
+
+  li {
+    float: left;
+    @include rem(font-size, 0.8);
+    margin-right: 5%;
+    position: relative;
+    text-transform: uppercase;
+    width: 30%;
+  }
+
+  li:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+
+  li:nth-child(3n+3) {  // &:nth-child not working => don't know why
+    margin-right: 0;
+  }
+
+  li a {
+    display: block;
+    position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+
+    &:hover,
+    &:active {
+      background-color: rgba($c-white, 0.2);;
+    }
+
+    h3 {
+      @include rem(padding, 1.6);
+      position: absolute;
+        bottom: 0;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
+
+
+/*  3. Layout
+ */
+
+#app-container {
+  height: 100%;
+  // @include linear-gradient($c-green-standard, $c-turquoise-standard);
+  // min-height: 100%;
+  // overflow: hidden;
+  @include rem(padding-top, 4.8);
+  // @include transform(translateY(70%));
+}
+
+
+
+// @charset "UTF-8";
+
+// @import "all.scss";
+
+// @import "devices/devices.scss";
+// // @import "components/wizard/wizard.scss";
+// // @import "components/form/form.scss";
+
+
+// /*
+//  *  1. General
+//  */
+
+// *, *:before, *:after {
+//   @include box-sizing(border-box);
+// }
+
+// html,
+// body {
+//   height: 100%;
+// }
+
+// html {
+//   font-size: 62.5%;                       // 10px / 16px (= standard font-size in all modern browsers)
+// }
+
+// body {
+//   color: $white;
+//   font-family: $open-sans;
+//   @include rem(font-size, 1.6);
+//   font-weight: 500;
+//   @include linear-gradient($green-light, $green-dark);
+//   line-height: 1.5;
+// }
+
+// strong {
+//   font-weight: 600;
+// }
+
+// a {
+//   color: $white;
+//   text-decoration: none;
+// }
+
+// h1,
+// h2 {
+//   font-weight: 600;
+//   text-align: center;
+// }
+
+// h1 {
+//   @include rem(font-size, 2.0);
+// }
+
+// h2 {
+//   @include rem(font-size, 1.2);
+//   @include rem(line-height, 1.2);
+//   text-transform: uppercase;
+// }
+
+// section {
+//   @include rem(margin-bottom, 2.4);
+// }
+
+// button {
+//   @include appearance(none);
+//   background-color: $white-transparent-dark;
+//   border: none;
+//   color: $white;
+//   cursor: pointer;
+//   display: block;
+//   font-family: $open-sans;
+//   @include rem(font-size, 1.6);
+//   font-weight: 500;
+//   margin: 0 auto;
+//   outline: none;
+//   @include rem(margin-bottom, 2.4);
+//   @include rem(margin-top, 2.4);
+//   @include rem(padding, 1.2);
+
+//   &:hover {
+//     background-color: $white-transparent-medium;
+//     border-color: $white-transparent-medium;
+//   }
+
+//   &:active {
+//     background-color: $white-transparent-light;
+//     border-color: $white-transparent-light;
+//   }
+// }
+
+
+// /*
+//  *  2. Classes
+//  */
+
+// .top-bar {
+//   background-color: $white-transparent-light;
+//   // background-color: $green-highlight-medium;
+//   @include rem(height, 5.5);
+//   @include rem(padding, 1.3, 0, 1.2);
+//   position: relative;
+
+//   .button {
+//     cursor: pointer;
+//     display: block;
+//     @include rem(font-size, 2.0);
+//     @include rem(height, 5.5);
+//     @include rem(padding, 1.3, 0, 1.2);
+//     position: absolute;
+//       top: 0;
+//     text-align: center;
+//     @include rem(width, 5.5);
+
+//     &:hover {
+//       background-color: $white-transparent-medium;
+//       // background-color: $green-highlight-light;
+//     }
+
+//     &.navigation {
+//       border-right: $bw-normal solid $white-transparent-dark;
+//       // border-right: $bw-normal solid $green-highlight-light;
+//       left: 0;
+//     }
+
+//     &.add,
+//     &.close {
+//       border-left: $bw-normal solid $white-transparent-dark;
+//       // border-left: $bw-normal solid $green-highlight-light;
+//       right: 0;
+//     }
+//   }
+// }
+
+// .overlay {
+//   @include linear-gradient($green-light, $green-dark);
+//   overflow-y: scroll;
+//   position: fixed;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//     top: 0;
+// }
+
+// .list {
+//   li {
+//     border-bottom: $bw-normal solid $white-transparent-dark;
+//     cursor: pointer;
+//     @include rem(padding, 1.2);
+
+//     &:hover {
+//       background-color: $white-transparent-dark;
+//     }
+
+//     &.active {
+//       background-color: $white-transparent-medium;
+//     }
+//   }
+// }
+
+// .nav.bullets {
+//   display: none;
+// }
+
+
+// /*
+//  *  3. Form
+//  */
+
+// label {
+//   color: $white-transparent-light;
+//   cursor: pointer;
+//   display: block;
+//   @include rem(font-size, 1.2);
+//   @include rem(padding, 0.6, 1.2);
+//   width: 100%;
+// }
+
+// input {
+//   @include appearance(none);
+//   background-color: transparent;
+//   border: none;
+//   border-bottom: $bw-normal solid $white-transparent-dark;
+//   color: $white;
+//   display: block;
+//   @include rem(font-size, 1.6);
+//   margin: 0;
+//   outline: none;
+//   @include rem(padding, 1.2);
+//   width: 100%;
+
+//   &:active,
+//   &:focus {
+//     background-color: $white-transparent-dark;
+//   }
+// }
+
+// input[type="checkbox"] {
+//   // display: none;
+
+//   &+ label {
+//     border-bottom: $bw-normal solid $white-transparent-dark;
+//     @include rem(padding, 1.2);
+//     text-align: center;
+
+//     &:hover {
+//       background-color: $white-transparent-dark;
+//     }
+//   }
+
+//   &:checked + label {
+//     background-color: $white-transparent-medium;
+//   }
+// }
+
+
+// /*
+//  *  4. Layout
+//  */
+
+// #main-navigation {
+//   display: none;
+
+//   &.show {
+//     display: block;
+//   }
+
+//   a {
+//     // border-bottom: $bw-normal solid $green-highlight-light;
+//     display: block;
+//     @include rem(padding, 0.8);
+//   }
+// }
+
+// #content {
+//   h2 {
+//     // background-color: $green-highlight-dark;
+//     background-color: $white-transparent-medium;
+//     @include rem(padding, 0.7, 0, 0.6);
+//   }
+// }

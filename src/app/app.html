@@ -1,0 +1,8 @@
+<header id="navigation-bar" class="top bar" ng-include="'app/shared/layout/navigation-bar.html'"></header>
+
+<nav id="tab-bar" class="bottom bar" ng-include="'app/shared/layout/tab-bar.html'"></nav>
+
+<aside id="navigation-add" class="large list view" ng-include="'app/shared/layout/navigation-view-add.html'" ng-show="guh.navigationAdd"></aside>
+<aside id="navigation-rooms" class="large list view" ng-include="'app/shared/layout/navigation-view-rooms.html'" ng-show="guh.navigationRooms"></aside>
+
+<div id="content" ui-view></div>
