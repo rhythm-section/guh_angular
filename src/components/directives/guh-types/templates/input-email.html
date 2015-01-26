@@ -1,0 +1,11 @@
+<div ng-form="subForm">
+  <p>
+    <label>{{ model.name }}</label>
+    <input ng-model="model.value" name="input" required type="email" />
+  </p>
+  
+  <div ng-messages="subForm.input.$error" ng-if="subForm.input.$dirty">
+    <p ng-message="required">Field is required.</p>
+    <p ng-message="email">The entered E-Mail address is not valid.</p>
+  </div>
+</div>

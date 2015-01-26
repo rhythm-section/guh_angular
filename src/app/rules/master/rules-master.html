@@ -1,0 +1,10 @@
+<h2>Rules</h2>
+
+<ul class="list">
+  <li class="list-item" ng-repeat="rule in rules.configured">
+    <a ui-sref="guh.rules.detail({ id: rule })">
+      <h3>Personalisierter Name</h3>
+      <span>{{ rule }}</span>
+    </a>
+  </li>
+</ul>

@@ -1,0 +1,41 @@
+<h2>Add device</h2>
+
+<guh-wizard>
+  <!-- Select vendor -->
+  <guh-wizard-step>
+    <ul class="list">
+      <li class="list-item" ng-click="addDevice.selectVendor(vendor)" ng-repeat="vendor in addDevice.supportedVendors track by $index">{{ vendor.name }}</li>
+    </ul>
+  </guh-wizard-step>
+
+  <!-- Select device -->
+  <guh-wizard-step>
+    <ul class="list">
+      <li class="list-item" ng-click="addDevice.selectDeviceClass(deviceClass)" ng-repeat="deviceClass in addDevice.supportedDeviceClasses track by $index">{{ deviceClass.name }}</li>
+    </ul>
+  </guh-wizard-step>
+
+  <!-- Show createMethod -->
+  <guh-wizard-step ng-if="addDevice.createMethod.templateUrl">
+    <!-- <p>createMethod</p> -->
+    <ng-include src="addDevice.createMethod.templateUrl"></data-ng-include>
+    
+    <!-- <guh-device-class model="addRule.currentDevice.deviceClass" save-state-descriptor="addRule.saveStateDescriptor(stateTypeData)" show="{states:true}"> -->
+  </guh-wizard-step>
+
+  <!-- Show setupMethod -->
+  <guh-wizard-step ng-if="addDevice.setupMethod.templateUrl">
+    <!-- <p>setupMethod</p> -->
+    <ng-include src="addDevice.setupMethod.templateUrl"></ng-include>
+  </guh-wizard-step>
+</guh-wizard>
+
+<!-- <ul>
+  <li ng-click="addDevice.setVendor(vendor)" ng-repeat="vendor in addDevice.supportedVendors track by vendor.id">{{ vendor.name }}</li>
+</ul>
+<hr />
+
+<ul>
+  <li ng-click="addDevice.setDeviceClass(deviceClass)" ng-repeat="deviceClass in addDevice.supportedDeviceClasses track by deviceClass.id">{{ deviceClass.name }}</li>
+</ul>
+<hr /> -->

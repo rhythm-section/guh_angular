@@ -1,0 +1,41 @@
+<button ng-click="addRule.addEvent()">Add Event</button>
+<p>Description</p>
+<div class="modal" ng-show="addRule.eventModal">
+  <guh-wizard>
+    <!-- Select device -->
+    <guh-wizard-step>
+      <ul>
+        <li ng-click="addRule.setDeviceWithEvents(device)" ng-repeat="device in addRule.devicesWithEvents track by device.id" ng-class="{ active: addRule.isSelected('device', device) }">{{ device.name }}</li>
+      </ul>
+    </guh-wizard-step>
+
+    <!-- Select event -->
+    <guh-wizard-step>
+      <ul ng-show="addRule.eventTypes.length">
+        <li ng-click="addRule.setEventType(eventType)" ng-repeat="eventType in addRule.eventTypes track by eventType.id" ng-class="{ active: addRule.isSelected('eventType', eventType) }">{{eventType.name}}</li>
+      </ul>
+    </guh-wizard-step>
+
+    <!-- Select event parameters -->
+    <guh-wizard-step></guh-wizard-step>
+  </guh-wizard>
+</div>
+<hr />
+
+<button>Add Action</button>
+<p>Description</p>
+<div class="modal">
+  <guh-wizard>
+    <!-- Select device -->
+    <guh-wizard-step></guh-wizard-step>
+
+    <!-- Select action -->
+    <guh-wizard-step></guh-wizard-step>
+
+    <!-- Select action parameters -->
+    <guh-wizard-step></guh-wizard-step>
+  </guh-wizard>
+</div>
+<hr />
+
+<button>Enabled/Disbaled</button>

@@ -1,0 +1,37 @@
+#main-navigation {
+  background-color: #eee;
+  @include rem(height, 4.8);
+  position: fixed;
+    bottom: 0;
+    left: 0;
+  width: 100%;
+
+  ul {
+    @include display(flex);
+    padding: 0;
+    width: inherit;
+  }
+
+  li {
+    border-left: 1px solid #ddd;
+    @include flex(1);
+
+    &:first-child {
+      border-left: none;
+    }
+  }
+
+  a {
+    background-color: inherit;
+    display: block;
+    @include rem(padding, 1.2);
+    text-align: center;
+    text-decoration: none;
+    width: inherit;
+
+    &:active,
+    &.active {
+      background-color: #ddd;
+    }
+  }
+}

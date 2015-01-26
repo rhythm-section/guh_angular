@@ -1,0 +1,16 @@
+<ul class="list">
+  <li class="list-item" id="id-{{ device.id }}"
+      ng-class="{ active: devicesAdd.isSelected(device) }"
+      ng-repeat="device in addDevice.discoveredDevices | filter: filters.deviceName | orderBy: 'name'"
+      ng-click="addDevice.save(device)">
+    <h4>{{ device.title }}</h4>
+    <span>{{ device.description }}</span>
+  </li>
+</ul>
+
+<form name="settings" ng-if="addDevice.currentDeviceClass.discoveryParamTypes.length > 0">
+  <!-- <p guh-input="paramType" ng-repeat="paramType in addDevice.currentDeviceClass.discoveryParamTypes track by $index"></p> -->
+  <p guh-input="param.type" ng-repeat="param in addDevice.currentDeviceClass.discoveryParams track by $index"></p>
+</form>
+
+<button data-ng-click="addDevice.discoverDevices()">Start search</button>

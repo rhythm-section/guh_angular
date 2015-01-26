@@ -1,0 +1,10 @@
+<h2>Devices</h2>
+
+<ul class="list">
+  <li class="list-item" ng-repeat="device in devices.configured track by $index">
+    <a ui-sref="guh.devices.detail({ id: device.id })">
+      <h3>Personalisierter Name</h3>
+      <span>{{ device.name }}</span>
+    </a>
+  </li>
+</ul>
